@@ -1,3 +1,7 @@
+package main;
+
+import main.Board;
+
 import java.util.Scanner;
 
 
@@ -28,7 +32,10 @@ public class XandO {
                     System.out.println("Player 1 wins.");
                     break;
                 }
-                board.isDraw(moves);
+                if (moves == 9 && !board.isWinner() && board.isDraw()) {
+                    System.out.println("Draw. Game ended.");
+                    break;
+                }
 
                 while (true) {
                     System.out.print("Player 2: Enter your move: ");
@@ -47,6 +54,8 @@ public class XandO {
                     break;
                 }
             }
+            board.resetBoard();
+
             System.out.println("Do you want to play again? Press 1, otherwise press 0");
             int option = scanner.nextInt();
             if(option == 0) break;

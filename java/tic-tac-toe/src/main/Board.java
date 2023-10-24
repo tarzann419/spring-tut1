@@ -1,3 +1,5 @@
+package main;
+
 public class Board {
 
     private char[][] board;
@@ -54,14 +56,31 @@ public class Board {
         return false;
 
     }
-
-    XandO xandO = new XandO();
-    int moves = xandO.moves;
-    public boolean isDraw(moves){
-        if (moves == 9) {
-            return true;
-//            System.out.println("Draw. Game ended.");
-//            break;
-        }
+    public void setBoard(char[][] newBoard) {
+        board = newBoard;
     }
+    public char[][] getBoard() {
+        return board;
+    }
+
+    public void resetBoard() {
+        char[][] initialBoard = {
+                {'1', '2', '3'},
+                {'4', '5', '6'},
+                {'7', '8', '9'}
+        };
+        board = initialBoard;
+    }
+
+    public boolean isDraw() {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (board[row][col] != 'X' && board[row][col] != 'O') {
+                    return false;
+                }
+            }
+        }
+        return !isWinner();
+    }
+
 }
