@@ -54,4 +54,14 @@ public class Board {
         return false;
 
     }
+
+    XandO xandO = new XandO();
+    int moves = xandO.moves;
+    public boolean isDraw(moves){
+        if (moves == 9) {
+            return true;
+//            System.out.println("Draw. Game ended.");
+//            break;
+        }
+    }
 }

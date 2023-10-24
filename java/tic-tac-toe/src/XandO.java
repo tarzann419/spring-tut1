@@ -28,10 +28,7 @@ public class XandO {
                     System.out.println("Player 1 wins.");
                     break;
                 }
-                if (moves == 9) {
-                    System.out.println("Draw. Game ended.");
-                    break;
-                }
+                board.isDraw(moves);
 
                 while (true) {
                     System.out.print("Player 2: Enter your move: ");
